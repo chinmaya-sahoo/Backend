@@ -17,3 +17,7 @@ const { add , sub } = require('./math') ; // importing the object as it is
 console.log(add(2,3)); 
 
 
+// to search in built in libraries
+const builtin = require('fs'); // for file system
+
+console.log(builtin);
