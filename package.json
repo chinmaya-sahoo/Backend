@@ -4,7 +4,7 @@
   "main": "hello.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev" : "node hello.js"
+    "start" : "node hello.js"
   },
   "author": "",
   "license": "ISC",
