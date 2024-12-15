@@ -45,3 +45,7 @@ fs.readFile('./contact.txt','utf-8',
 
 
 
+// Delete files
+fs.unlinkSync('./copy.txt');
+
+
