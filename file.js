@@ -53,3 +53,12 @@ fs.readFile('./contact.txt','utf-8',
 // console.log(fs.statSync('./test.txt').isFile()) //true of false
 
 
+
+// others
+// fs.mkdirSync('mydir');
+fs.mkdirSync('mydir2/a/b',{ recursive: true });
+
+
+
+
+
