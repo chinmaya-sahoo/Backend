@@ -56,13 +56,17 @@ fs.readFile('./contact.txt','utf-8',
 
 // others
 // fs.mkdirSync('mydir');
-fs.mkdirSync('mydir2/a/b',{ recursive: true });
+// fs.mkdirSync('mydir2/a/b',{ recursive: true });
 
 
 //node.js architecture
 // Event loop...
-// Operation:- (i) blocking  (ii)non-blocking 
+// Operation:- (i) blocking (synchronous)(waiting) (ii)non-blocking(asynchronous) (no waiting or skipping)
 // request -> blocking operation -> thread-pool(consist of thread or workers)-> check if any worker is free -> if free assign work to worker -> return response
 // request -> non-blocking operation -> process -> return response
 
+// Default thread pool size = 8
+// Maximum thread pool size = no of CPU cores
 
+const os = require('os');
+console.log(os.cpus().length);
