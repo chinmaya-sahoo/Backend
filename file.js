@@ -46,6 +46,10 @@ fs.readFile('./contact.txt','utf-8',
 
 
 // Delete files
-fs.unlinkSync('./copy.txt');
+// fs.unlinkSync('./copy.txt');
+
+//status check
+// console.log(fs.statSync('./test.txt'))
+// console.log(fs.statSync('./test.txt').isFile()) //true of false
 
 
