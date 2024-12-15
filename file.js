@@ -59,6 +59,10 @@ fs.readFile('./contact.txt','utf-8',
 fs.mkdirSync('mydir2/a/b',{ recursive: true });
 
 
-
+//node.js architecture
+// Event loop...
+// Operation:- (i) blocking  (ii)non-blocking 
+// request -> blocking operation -> thread-pool(consist of thread or workers)-> check if any worker is free -> if free assign work to worker -> return response
+// request -> non-blocking operation -> process -> return response
 
 
