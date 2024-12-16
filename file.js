@@ -69,4 +69,6 @@ fs.readFile('./contact.txt','utf-8',
 // Maximum thread pool size = no of CPU cores
 
 const os = require('os');
-console.log(os.cpus().length);
+// console.log(os.cpus().length);
+
+
