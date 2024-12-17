@@ -1,10 +1,6 @@
-1734361461220: / New request received
-1734361540359: /about/chinmay=1&id=10 New request received
-1734361619503: /about/?chinmay=1&id=10 New request received
-1734361722523: /about/?chinmay=1&id=10 New request received
-1734361736574: /about/?chinmay=1&id=10 New request received
-1734361737353: /about/?chinmay=1&id=10 New request received
-1734361758746: /about?chinmay=1&id=10 New request received
-1734361917961: /about?chinmay=1&id=10 New request received
-1734362002895: /about?chinmay=1&id=10 New request received
-1734362297011: /about?chinmay=1&id=10 New request received
+1734446716888: GET / New request received
+1734447017754: GET /signup New request received
+1734447066091: GET /signup New request received
+1734447273707: GET /signup New request received
+1734447569376: GET / New request received
+1734447585180: GET /signup New request received
