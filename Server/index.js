@@ -1,3 +1,4 @@
+/*
 const http = require('http');
 const fs = require('fs');
 const url = require('url');
@@ -29,6 +30,30 @@ const myServer = http.createServer((req, res)=>{
 });
 
 myServer.listen(8000,()=> console.log("server started!"));
+
+*/
+
+
+
+
+// Express JS
+//letting express js handle everything 
+const express = require('express');
+const app = express();
+
+app.get('/', (req, res)=>{
+    return res.send("Hello From Home Page");
+});
+
+app.get('/about',(req, res)=>{
+    return res.send("Hello From About Page" + "Hey" + res.query.name);
+});
+
+app.listen(8000,()=>console.log("Server started!"));
+
+
+
+
 
 
 
