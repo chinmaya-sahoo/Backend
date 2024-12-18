@@ -51,7 +51,16 @@ app.get('/about',(req, res)=>{
 
 app.listen(8000,()=>console.log("Server started!"));
 
-
+/*
+Versioning:-
+"^4.21.2"
+"2"- minor update
+"21"- recommended update
+"4"- major update( code breaking)
+"^4.21.2" :- from "4.21.2" to "5.0.0"(not inclusive)
+"~4.21.2" :- from "4.21.2" to "4.21.9"(inclusive)
+"latest" :- latest version
+*/
 
 
 
