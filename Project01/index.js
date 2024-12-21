@@ -1,7 +1,30 @@
 const express = require('express');
+
+const fs = require('fs');
 const app = express();
+
 const users = require('./MOCK_DATA.json');
 const PORT = 8000;
+
+//middleware
+app.use(express.urlencoded({extended : false}));
+
+app.use((req, res, next) => {
+    req.userName = "chinmaya";
+    console.log('Hello from middleware-1');
+    // return res.json({ msg : 'Hello from middleware-1' });//make the function stuck here
+    next();
+});
+
+app.use((req, res, next) => {
+    console.log('Hello from middleware-2' , req.userName);
+    fs.appendFile('./log.txt', `\n${Date.now()} : ${req.method}: ${req.path}\n`);
+    next();
+});
+
+
+
+
 
 app.get('/users', (req, res) => {
     const data = `
@@ -23,7 +46,12 @@ app.get('/api/users/:id', (req, res) => {
 })
 
 app.post('/api/users', (req, res) => {
-    return res.json({ status : "pending"});
+    const body = req.body;
+    // console.log("Body : ",body);
+    users.push({ id : users.length + 1 , ...body });
+    fs.writeFile('./MOCK_DATA.json',JSON.stringify(users),(err, data) => {
+        return res.json({ status : "success" , newId : users.length });
+    });
 })
 
 app.patch('/api/users/:id', (req, res) => {
@@ -33,8 +61,6 @@ app.patch('/api/users/:id', (req, res) => {
 app.delete('/api/users/:id', (req, res) => {
     return res.json({ status : "pending"});
 })
-
-
 
 
 
