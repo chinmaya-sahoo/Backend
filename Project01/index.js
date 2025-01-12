@@ -85,7 +85,16 @@ app.patch('/api/users/:id', (req, res) => {
 })
 
 app.delete('/api/users/:id', (req, res) => {
-    return res.json({ status : "pending"});
+    const id = Number(req.params.id);
+    const index = users.findIndex((user) => user.id === id);
+    if(index === -1) {
+        return res.status(404).json({ error : " user not found"});
+    }
+    users.splice(index, 1);
+    fs.writeFile('./MOCK_DATA.json',JSON.stringify(users),(err, data) => {
+        return res.json({ status : "successfully deleted" , deletedId : id })
+    // return res.json({ status : "pending"});
+    });
 })
 
 

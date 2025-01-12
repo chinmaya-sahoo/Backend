@@ -7982,29 +7982,5 @@
         "email": "amattholierp@purevolume.com",
         "gender": "Male",
         "job_title": "Administrative Assistant II"
-    },
-    {
-        "id": 999,
-        "first_name": "Koenraad",
-        "last_name": "Braznell",
-        "email": "kbraznellrq@1688.com",
-        "gender": "Male",
-        "job_title": "Quality Engineer"
-    },
-    {
-        "id": 1000,
-        "first_name": "Mada",
-        "last_name": "Juliff",
-        "email": "mjuliffrr@opera.com",
-        "gender": "Female",
-        "job_title": "Mechanical Systems Engineer"
-    },
-    {
-        "id": 1001,
-        "first_name": "hero",
-        "last_name": "zero",
-        "email": "hero@gmail.com",
-        "gender": "male",
-        "job_title": "sweeper"
     }
 ]

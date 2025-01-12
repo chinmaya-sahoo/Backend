@@ -46,3 +46,7 @@
 1736703736599 : PATCH: /api/users
 
 1736703758578 : PATCH: /api/users/12
+
+1736704299268 : DELETE: /api/users/1000
+
+1736704320727 : DELETE: /api/users/999
