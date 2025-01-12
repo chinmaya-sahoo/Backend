@@ -1,0 +1,48 @@
+
+1736701030842 : GET: /api/users
+
+1736701031032 : GET: /favicon.ico
+
+1736701069211 : GET: /api/users/3
+
+1736701119977 : GET: /api/users/100
+
+1736701130119 : GET: /api/users/
+
+1736701194663 : GET: /api/users/
+
+1736701257699 : GET: /api/users/
+
+1736701259044 : GET: /api/users/
+
+1736701259674 : GET: /api/users/
+
+1736701354433 : GET: /users
+
+1736701439785 : GET: /api/users
+
+1736701625486 : POST: /api/users
+
+1736701832925 : POST: /api/users
+
+1736701897454 : POST: /api/users
+
+1736701999447 : POST: /api/users
+
+1736702196571 : POST: /api/users
+
+1736702202560 : POST: /api/users
+
+1736702247232 : POST: /api/users
+
+1736702890714 : PATCH: /api/users
+
+1736702934213 : PATCH: /api/users
+
+1736703638944 : PATCH: /api/users
+
+1736703728322 : PATCH: /api/users
+
+1736703736599 : PATCH: /api/users
+
+1736703758578 : PATCH: /api/users/12

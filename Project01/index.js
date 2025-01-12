@@ -1,5 +1,4 @@
 const express = require('express');
-
 const fs = require('fs');
 const app = express();
 
@@ -18,8 +17,12 @@ app.use((req, res, next) => {
 
 app.use((req, res, next) => {
     console.log('Hello from middleware-2' , req.userName);
-    fs.appendFile('./log.txt', `\n${Date.now()} : ${req.method}: ${req.path}\n`);
-    next();
+    fs.appendFile('./log.txt', `\n${Date.now()} : ${req.method}: ${req.path}\n`, (err) => {
+        if (err) {
+            console.error('Error appending to file:', err);
+        }
+        next();
+    });
 });
 
 
@@ -37,7 +40,7 @@ app.get('/users', (req, res) => {
 
 app.get('/api/users', (req, res) => {
     res.setHeader("X-MYNAME" , "chinmaya sahoo");
-    console.log(req.headers)
+    // console.log(req.headers)
     return res.json(users);
 })
 
@@ -61,7 +64,24 @@ app.post('/api/users', (req, res) => {
 })
 
 app.patch('/api/users/:id', (req, res) => {
-    return res.json({ status : "pending"});
+    const id = Number(req.params.id);
+    const user = users.find((user) => user.id === id);
+    const body = req.body;
+    if(!user) {
+       return res.status(404).json({ error : " user not found"});
+    }
+    else{
+        // user.id = body.id;
+        user.first_name = body.first_name;
+        user.last_name = body.last_name;
+        user.email = body.email;
+        user.gender = body.gender;
+        user.job_title = body.job_title;
+        fs.writeFile('./MOCK_DATA.json',JSON.stringify(users),(err, data) => {
+            return res.json({ status : "successfully updated" , updatedId : id });
+        });
+    }
+    // return res.json({ status : "pending"});
 })
 
 app.delete('/api/users/:id', (req, res) => {
