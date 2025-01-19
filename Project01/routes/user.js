@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-app.get('/users', async (req, res) => {
+router.get('/users', async (req, res) => {
     const allDbUsers = await User.find();
     const data = `
         <ul>
@@ -11,7 +11,7 @@ app.get('/users', async (req, res) => {
     return res.send(data);
 });
 
-app.get('/api/users', async (req, res) => {
+router.get('/api/users', async (req, res) => {
     // res.setHeader("X-MYNAME" , "chinmaya sahoo");
     // console.log(req.headers)
     const allDbUsers = await User.find();
@@ -19,14 +19,14 @@ app.get('/api/users', async (req, res) => {
     return res.json(allDbUsers);
 })
 
-app.get('/api/users/:id', (req, res) => {
+router.get('/api/users/:id', (req, res) => {
     const id = Number(req.params.id);
     const user = users.find((user) => user.id === id);
     if(!user) return res.status(404).json({error : " user not found"});
     return res.json(user);
 })
 
-app.post('/api/users', async (req, res) => {
+router.post('/api/users', async (req, res) => {
     const body = req.body;
     if(!body || !body.first_name || !body.last_name || !body.email || !body.gender || !body.job_title){
         return res.status(400).json({ msg : "All Fields Are Required"})
@@ -47,7 +47,7 @@ app.post('/api/users', async (req, res) => {
     return res.status(201).json({ msg : "successfully created" })
 })
 
-app.patch('/api/users/:id', async (req, res) => {
+router.patch('/api/users/:id', async (req, res) => {
     // const id = Number(req.params.id);
     // const user = users.find((user) => user.id === id);
     // const user = await User.findById(req.params.id)
@@ -69,7 +69,7 @@ app.patch('/api/users/:id', async (req, res) => {
     return res.json({ status : "successfully updated" , updatedId : req.params.id });
 })
 
-app.delete('/api/users/:id', async (req, res) => {
+router.delete('/api/users/:id', async (req, res) => {
     // const id = Number(req.params.id);
     // const index = users.findIndex((user) => user.id === id);
     const user = await User.findById(req.params.id);
