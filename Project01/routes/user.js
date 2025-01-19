@@ -1,40 +1,5 @@
 const express = require('express');
-const mongoose = require('mongoose');
-const fs = require('fs');
-const app = express();
-
-// const users = require('./MOCK_DATA.json');
-
-const PORT = 8000;
-
-//connect to mongodb
-mongoose.connect('mongodb://localhost:27017/youtube-app-1')
-.then(()=>{console.log('Connected to MongoDB')})
-.catch(err => console.error('Error connecting to MongoDB', err));
-
-//middleware
-app.use(express.urlencoded({extended : false}));
-
-app.use((req, res, next) => {
-    req.userName = "chinmaya";
-    console.log('Hello from middleware-1');
-    // return res.json({ msg : 'Hello from middleware-1' });//make the function stuck here
-    next();
-});
-
-app.use((req, res, next) => {
-    console.log('Hello from middleware-2' , req.userName);
-    fs.appendFile('./log.txt', `\n${Date.now()} : ${req.method}: ${req.path}\n`, (err) => {
-        if (err) {
-            console.error('Error appending to file:', err);
-        }
-        next();
-    });
-});
-
-
-
-
+const router = express.Router();
 
 app.get('/users', async (req, res) => {
     const allDbUsers = await User.find();
@@ -141,5 +106,3 @@ app
 })
 
 */
-
-app.listen(PORT, ()=> console.log(`Server Started at ${PORT}`));
